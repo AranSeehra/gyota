@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
-  def dashboard
+  def index
+    @pages = 
   end
 end
