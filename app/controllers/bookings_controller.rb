@@ -12,11 +12,9 @@ class BookingsController < ApplicationController
   def create
     @teacher = Teacher.find(params[:teacher_id])
     @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to booking_path(@booking)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    # @teacher.booking = @booking
+    @booking.save
+    redirect_to dashboard_index_path
   end
 
   def edit
@@ -41,6 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:timeslot, :teacher_id, :user_id)
+    params.require(:booking).permit(:timeslot, :start_at, :end_at, :teacher_id, :user_id)
   end
 end

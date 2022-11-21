@@ -4,11 +4,11 @@
     <% @teachers.each do |teacher|%>
     <li>
     <div class="card" style="width: 18rem;">
-        <%# <div class="card-img-top"> <%= cl_image_tag(list.photo.key, width: 286, height: 300, crop: :fill)</div> %> %>
+        <%# <div class="card-img-top"> <%= cl_image_tag(list.photo.key, width: 286, height: 300, crop: :fill)</div> %>
         <div class="card-body">
-          <h5 class="card-title"> <strong><%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_bookings_path(teacher)  %></strong></h5>
+          <h5 class="card-title"> <strong><%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
 
     </li>
     <% end %>
 </ol>
-<%# <p style="text-align: center;"><%= link_to raw('<i class="fa-solid fa-plus fa-lg"></i> List'), new_teacher_booking_path %> </p> %>
+<%# <p style="text-align: center;"><%= link_to raw('<i class="fa-solid fa-plus fa-lg"></i> List'), new_teacher_booking_path %> </p>
