@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :bookings
 
-  get "dashboard", to: "users#dashboard", as: "dashboard"
+  get "dashboard/:id", to: "users#dashboard", as: "dashboard"
 
 
 end
