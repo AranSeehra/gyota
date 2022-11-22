@@ -10,26 +10,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-2">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#"><%= link_to "Home",   root_path %></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Bookings</a>
+            <a class="nav-link" href="#"><%= link_to "Bookings",   dashboard_path %></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Teachers</a>
+            <a class="nav-link" href="#"><%= link_to "Teachers",   teachers_path %></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign in</a>
+            <a class="nav-link" href="#"><%= link_to "Sign In",   new_user_session_path%></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Login</a>
           </li>
           <li class="nav-item dropdown">
+
           <% if current_user %>
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.photo.key, width: 286, height: 300, crop: :fill %>" />
           <% else %>
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://thumbs.dreamstime.com/z/default-avatar-profile-icon-vector-unknown-social-media-user-photo-default-avatar-profile-icon-vector-unknown-social-media-user-184816085.jpg"/>
           <% end %>
+
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
