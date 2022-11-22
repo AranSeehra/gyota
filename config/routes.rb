@@ -8,15 +8,13 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-
-
   resources :teachers do
     resources :bookings
   end
 
   resources :bookings
 
-  get "dashboard", to: "users#dashboard", as: "dashboard"
+  get "dashboard/:id", to: "users#dashboard", as: "dashboard"
 
 
 end
