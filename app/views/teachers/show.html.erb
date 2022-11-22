@@ -1,0 +1,12 @@
+<h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+
+<%= cl_image_tag @teacher.photo.key,
+      width: 400, height: 300, crop: :fill %>
+
+<ul>
+  <li><%= @teacher.location %></li>
+  <li><%= @teacher.bio %></li>
+  <li><%= @teacher.specialty %></li>
+</ul>
+<h2><%= link_to "Book an appointment", new_teacher_booking_path(@teacher) %></h2>
+<%= link_to "Back to Index", teachers_path %>
