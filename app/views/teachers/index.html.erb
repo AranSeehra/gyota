@@ -1,4 +1,4 @@
-
+<%= link_to "Sign in", new_user_session_path %>
 <h1> Teachers List </h1>
 <ol>
     <% @teachers.each do |teacher|%>
@@ -11,4 +11,7 @@
     </li>
     <% end %>
 </ol>
+
+
+
 <%# <p style="text-align: center;"><%= link_to raw('<i class="fa-solid fa-plus fa-lg"></i> List'), new_teacher_booking_path %> </p>
