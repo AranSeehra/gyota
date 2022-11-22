@@ -4,8 +4,8 @@
       <div class="bg-white rounded p-3 shadow">
         <h1>Book an Appointment</h1>
         <%= simple_form_for [@teacher, @booking] do |f| %>
-          <%= f.input :start_at %>
-          <%= f.input :end_at %>
+          <%= f.input :start_at, as: :datetime %>
+          <%= f.input :end_at, as: :datetime %>
           <%= f.submit %>
           <%= link_to "Back to teacher", teacher_path(@teacher) %>
         <% end %>
