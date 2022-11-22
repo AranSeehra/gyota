@@ -1,7 +1,29 @@
 a {
+  color: rgb(111, 111, 111);
+  opacity: .7;
+  text-decoration: none;
+  font-family: Helvetica, sans-serif;
+}
+a:hover {
+  color: rgb(188, 188, 188);
+  opacity: 1;
   text-decoration: none;
   }
-a:hover {
-    text-decoration: none;
+
+  .btn-outline-primary {
+  text-decoration: none;
+  font-family: Helvetica, sans-serif;
+  }
+
+  .btn-flat {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: #670BFF;
+    transition: background 0.3s ease;
+  }
+
+  .btn-flat:hover {
+    background: #4D04C4;
     color: white;
   }
