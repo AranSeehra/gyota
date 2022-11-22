@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "teachers#index"
+  root to: "teachers#home"
   devise_for :users do
     resources :pages
   end
