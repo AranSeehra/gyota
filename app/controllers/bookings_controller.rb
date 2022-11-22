@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     # @teacher.booking = @booking
     @booking.save
-    redirect_to dashboard_index_path
+    redirect_to dashboard_path
   end
 
   def edit
