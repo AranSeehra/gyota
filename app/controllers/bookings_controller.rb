@@ -31,7 +31,6 @@ class BookingsController < ApplicationController
     @booking.end_at = endtime
     @booking.teacher = @teacher
     @booking.user = current_user
-    # raise
     @booking.save
     redirect_to dashboard_path(current_user)
   end
