@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
 
+
   root to: "teachers#home"
   devise_for :users do
     resources :pages
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+
+
   resources :teachers do
     resources :bookings
   end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :bookings
+
+  get "dashboard", to: "users#dashboard", as: "dashboard"
+
+
 end
