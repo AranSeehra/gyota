@@ -1,5 +1,11 @@
-test<br>
 
-<%= current_user.email %>
-<%# <%= @user. %>
 
+<h1><%= @user.email %></h1>
+
+<% @user.bookings.each do |booking| %>
+<p>Teacher:</p>
+<%= booking.teacher.first_name %> <%= booking.teacher.last_name %>
+<p>Start Time: <%= booking.start_at %> </p>
+<p>End Time: <%= booking.end_at %></p>
+<% end %>
+test
