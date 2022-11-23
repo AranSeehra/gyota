@@ -36,13 +36,12 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def update
-    set_booking
     @booking.update(booking_params)
-    redirect_to teacher_path(@teacher)
+    redirect_to dashboard_path(current_user)
   end
 
   def destroy
