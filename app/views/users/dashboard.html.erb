@@ -1,11 +1,30 @@
+<h1 class="mx-auto text-center mt-4 mb-3"> Your Bookings </h1>
+<ul>
+  <h1><%= @user.email %></h1>
+<br>
 
+  <div class="row">
+    <% @user.bookings.each do |booking| %>
+    <div class="col-md-4">
+      <div class="container">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <p>Teacher:</p>
+            <%= booking.teacher.first_name %> <%= booking.teacher.last_name %>
+            <p>Start Time: <%= booking.start_at %> </p>
+            <p>End Time: <%= booking.end_at %></p>
+            <%= link_to "Delete Booking",
+                  dashboard_path(current_user),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                  class:"btn btn-outline-danger" %>
+            <button type="button" class="btn btn-outline-info"><%= link_to "Edit" %></button>
+            <p class="card-text"><small class="text-muted">Last updated <%= rand(0..5) %> mins ago</small></p>
+            <h5 class="card-trip-pricing"><strong>£<%= rand(10..50) %>.00/h</strong></h5>
 
-<h1><%= @user.email %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<% @user.bookings.each do |booking| %>
-<p>Teacher:</p>
-<%= booking.teacher.first_name %> <%= booking.teacher.last_name %>
-<p>Start Time: <%= booking.start_at %> </p>
-<p>End Time: <%= booking.end_at %></p>
-<% end %>
-test
+    <% end %>
+  </div>

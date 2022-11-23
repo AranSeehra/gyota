@@ -1,12 +1,23 @@
-<h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
 
-<%= cl_image_tag @teacher.photo.key, width: 400, height: 300, crop: :fill %>
+<%# <%= cl_image_tag @teacher.photo.key, width: 400, height: 300, crop: :fill %>
+<div class="container">
+  <div class="card mb-3" style="max-width: 840px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        #<img src="..." class="img-fluid rounded-start" alt="...">
+        <h1 class="mt-4 text-center"><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+        <br>
+        <ul class="list-unstyled">
+
+          <li><%= @teacher.location %></li>
+          <li><%= @teacher.bio %></li>
+          <li><%= @teacher.specialty %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 
-<ul>
-  <li><%= @teacher.location %></li>
-  <li><%= @teacher.bio %></li>
-  <li><%= @teacher.specialty %></li>
-</ul>
-<h2><%= link_to "Book an appointment", new_teacher_booking_path(@teacher) %></h2>
-<%= link_to "Back to Index", teachers_path %>
+  <%= link_to "Book an appointment", new_teacher_booking_path(@teacher), class: "btn btn-flat" %>
+  <%= link_to "Back to Index", teachers_path, class: "btn btn-primary" %>
+</div>
