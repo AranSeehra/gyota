@@ -9,10 +9,11 @@
       <div class="container">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <p>Teacher:</p>
-            <%= booking.teacher.first_name %> <%= booking.teacher.last_name %>
-            <p>Start Time: <%= booking.start_at %> </p>
-            <p>End Time: <%= booking.end_at %></p>
+          <p>Your booking with: </p>
+            <h5><strong><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></strong></h5>
+            <p>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></p>
+            <p>Session:<%= booking.start_at.hour%>:00 - <%= booking.end_at.hour %>:00</p>
+
             <%= link_to "Delete Booking",
                   booking_path(booking),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
