@@ -1,8 +1,6 @@
-<h1 class="mx-auto text-center mt-4 mb-3"> Your Bookings </h1>
+<h1 class="mx-auto text-center mt-4 mb-3"> Your Bookings - <%= @user.email %> </h1>
 <ul>
-  <h1><%= @user.email %></h1>
 <br>
-
   <div class="row">
     <% @user.bookings.each do |booking| %>
     <div class="col-md-4">
