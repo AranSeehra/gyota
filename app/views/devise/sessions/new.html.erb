@@ -1,20 +1,52 @@
-<h2>Log in</h2>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
-  data: {turbo: false}) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'banner.jpg' %>)">
+
+  <div class="container">
+    <h1>Get Assistance from Le Wagon’s Teachers!</h1>
+    <p>Rent a TA and get your challenges done easier</p>
+
+    <button type="button" class="btn btn-outline-primary"><%= link_to "Book Now",   teachers_path %></button>
+    <button type="button" class="btn btn-outline-primary"><%= link_to "Sign Up",  new_user_registration_path %></button>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+  <div class="container card"><h2>Log in</h2>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+    data: {turbo: false}) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" } %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
+</div>
+
+
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><%= link_to "Bookings",   teachers_path %></a>
+    <a href="#"><%= link_to "Sign in",   teachers_path %></a>
+    <a href="#"><%= link_to "About",   teachers_path %></a>
+    <a href="#"><%= link_to "$$ US",   teachers_path %></a>
+    <a href="#"><%= link_to "Get us a job",   teachers_path %></a>
+     <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
