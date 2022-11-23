@@ -5,18 +5,18 @@
     <% @user.bookings.each do |booking| %>
     <div class="col-md-4">
       <div class="container">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="height: 300px; width: 18rem;">
           <div class="card-body">
           <p>Your booking with: </p>
             <h5><strong><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></strong></h5>
-            <p>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></p>
-            <p>Session:<%= booking.start_at.hour%>:00 - <%= booking.end_at.hour %>:00</p>
+            <p class="card-text">Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></p>
+            <p class="card-text">Session:<%= booking.start_at.hour%>:00 - <%= booking.end_at.hour %>:00</p>
 
             <%= link_to "Delete Booking",
                   booking_path(booking),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
                   class:"btn btn-outline-danger" %>
-            <button type="button" class="btn btn-outline-info"><%= link_to "Edit" %></button>
+            <button type="button" class="btn btn-outline-info"><%= link_to "Edit", edit_booking_path %></button>
             <p class="card-text"><small class="text-muted">Last updated <%= rand(0..5) %> mins ago</small></p>
             <h5 class="card-trip-pricing"><strong>£<%= rand(10..50) %>.00/h</strong></h5>
 
