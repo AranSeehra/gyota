@@ -47,7 +47,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to teachers_path, status: :see_other
+    redirect_to dashboard_path(current_user), status: :see_other
   end
 
   private
