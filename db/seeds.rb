@@ -9,7 +9,7 @@
 require "open-uri"
 
 
-Teacher.delete_all
+Teacher.destroy_all
 
 marco = Teacher.new(first_name: 'Marco', last_name: 'Ricci', location: 'London', bio: 'Batch Manager lewagon London', specialty: 'Web Dev')
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1639647622/uyye8sjnejcohlb5gcui.jpg")
