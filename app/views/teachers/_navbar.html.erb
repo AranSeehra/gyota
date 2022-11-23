@@ -13,7 +13,11 @@
             <h6><%= link_to "Home ",   root_path,  class: "nav-link" %></h6>
           </li>
           <li class="nav-item">
+          <% if current_user %>
             <h6><%= link_to "Bookings", dashboard_path(current_user), class: "nav-link" %></h6>
+          <% else %>
+           <h6><%= link_to "Bookings",   new_user_registration_path, class: "nav-link"%></h6>
+          <% end %>
           </li>
           <li class="nav-item">
             <h6><%= link_to "Teachers", teachers_path, class: "nav-link", class: "nav-link" %></h6>
@@ -25,8 +29,12 @@
             <h6><%= link_to "Sign In", new_user_session_path, class: "nav-link"%></h6>
           </li>
           <li class="nav-item dropdown">
-
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1665430079/kgxnopl0hilxiiulvgbz.jpg" />
+          <%# if current_user %>
+            <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.photo.key, width: 286, height: 300, crop: :fill %>" /> %>
+          <%# else %>
+            <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://thumbs.dreamstime.com/z/default-avatar-profile-icon-vector-unknown-social-media-user-photo-default-avatar-profile-icon-vector-unknown-social-media-user-184816085.jpg"/> %>
+          <%# end %>
+            <% <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1665430079/kgxnopl0hilxiiulvgbz.jpg" /> %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Action</a>
