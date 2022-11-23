@@ -11,8 +11,8 @@ application.register("hello", HelloController)
 
 // app/javascript/controllers/index.js
 
-import { Application } from "stimulus"
-import Carousel from "stimulus-carousel"
+// import { Application } from "stimulus"
+// import Carousel from "stimulus-carousel"
 
-const application = Application.start()
-application.register("carousel", Carousel)
+// const application = Application.start()
+// application.register("carousel", Carousel)
