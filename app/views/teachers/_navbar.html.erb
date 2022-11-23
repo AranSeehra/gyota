@@ -13,7 +13,11 @@
             <h6><%= link_to "Home ",   root_path,  class: "nav-link" %></h6>
           </li>
           <li class="nav-item">
-            <h6><%= link_to "Bookings", dashboard_path(current_user), class: "nav-link" %></h6>
+          <% if current_user %>
+            <h6><%= link_to "Bookings", dashboard_path(current_user), class: "nav-link"  %></h6>
+          <% else %>
+            <h6><%= link_to "Bookings", new_user_session_path, class: "nav-link"  %></h6>
+          <% end %>
           </li>
           <li class="nav-item">
             <h6><%= link_to "Teachers", teachers_path, class: "nav-link", class: "nav-link" %></h6>
