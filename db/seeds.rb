@@ -8,15 +8,15 @@
 
 require "open-uri"
 
-
-Teacher.delete_all
+# Booking.destroy_all
+Teacher.destroy_all
 
 marco = Teacher.new(first_name: 'Marco', last_name: 'Ricci', location: 'London', bio: 'Batch Manager lewagon London', specialty: 'Web Dev')
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1639647622/uyye8sjnejcohlb5gcui.jpg")
 marco.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 marco.save
 
-usman = Teacher.new(first_name: 'Usman', last_name: 'Akram', location: 'Sao Paulo', bio: 'A recent web development Bootcamp graduate who facilitated the launch of two successful web applications as project manager. Out of fourteen pitches, my idea was one of eight that got greenlit. I grew my skills in analysis, time management and communication while studying for my Bachelor's and Master's degrees. I deployed these skills in my acting career, helping me secure a scholarship to one of the best drama schools in New York City. I now use these talents as a Software Development Teacher to boost students on their journey to becoming software developers, already having supported 30 to achieve that dream.', specialty: 'Web Dev')
+usman = Teacher.new(first_name: 'Usman', last_name: 'Akram', location: 'Sao Paulo', bio: "A recent web development Bootcamp graduate who facilitated the launch of two successful web applications as project manager. Out of fourteen pitches, my idea was one of eight that got greenlit. I grew my skills in analysis, time management and communication while studying for my Bachelor's and Master's degrees. I deployed these skills in my acting career, helping me secure a scholarship to one of the best drama schools in New York City. I now use these talents as a Software Development Teacher to boost students on their journey to becoming software developers, already having supported 30 to achieve that dream.", specialty: 'Web Dev')
 file = URI.open("https://avatars.githubusercontent.com/u/102724070?v=4")
 usman.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 usman.save
