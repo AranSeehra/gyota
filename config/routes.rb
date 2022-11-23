@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
-  resources :bookings
+  resources :bookings, only: [:destroy]
 
   get "dashboard/:id", to: "users#dashboard", as: "dashboard"
 

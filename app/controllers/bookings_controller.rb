@@ -46,8 +46,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to dashboard_path(current_user), status: :see_other
+    redirect_to dashboard_path(@booking.teacher), status: :see_other
   end
 
   private
