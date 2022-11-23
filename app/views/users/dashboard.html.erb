@@ -1,20 +1,26 @@
 
+<div class="container">
+  <h1><%= @user.email %></h1>
 
-<h3 class="ms-4 mt-4"><%= @user.email %></h3>
 
 
-<% @user.bookings.each do |booking| %>
-      <div class="card-group mt-3 ms-4">
-          <div class="card mb-3 shadow p-3  mb-5 bg-body rounded" style="max-width: 320px;">
-              <div class="row">
-                <p class="fw-bold">Teacher:</p>
-                <p><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></p>
-                <p>Start Time: <%= booking.start_at %> </p>
-                <p>End Time: <%= booking.end_at %></p>
-              </div>
-            </div>
-          </div>
+
+
+        <% @user.bookings.each do |booking| %>
+  <div class="card-trip">
+
+    <div class="card-trip-infos">
+      <div>
+  <p>Teacher:</p>
+  <%= booking.teacher.first_name %> <%= booking.teacher.last_name %>
+  <p>Start Time: <%= booking.start_at %> </p>
+  <p>End Time: <%= booking.end_at %></p>
+  <%= link_to "Delete Booking",
+            dashboard_path(current_user),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
+      <h2 class="card-trip-pricing">£30.00</h2>
     </div>
-
-<% end %>
+  </div>
+  <% end %>
+</div>
