@@ -3,9 +3,9 @@
     <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="img-fluid rounded-start" alt="...">
     <div class="card-product-infos">
       <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
-      <%= @teacher.avg_rating.times do %>
-        ⭐️
-      <% end %>
+        <%= @teacher.avg_rating.times do %>
+          ⭐️
+        <% end %>
       <ul class="list-unstyled">
         <li><strong>Location:</strong> <%= @teacher.location %></li>
         <li><strong>Specialty:</strong> <%= @teacher.specialty %></li>

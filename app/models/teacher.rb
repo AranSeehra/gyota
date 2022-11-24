@@ -15,6 +15,7 @@ class Teacher < ApplicationRecord
     }
 
   def avg_rating
+    return 0 if reviews.empty?
     reviews.average(:rating).round
   end
 
