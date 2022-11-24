@@ -10,12 +10,11 @@
           <div class="card-body mt-1">
             <img class="card-img-top" src="<%= cl_image_path booking.teacher.photo.key, width: 400, height: 300, crop: :fill %>" class="img-fluid rounded-start mb-2" alt="...">
             <p>Your booking with: </p>
-
             <h5 class="mt-2"><strong><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></strong></h5>
             <p>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></p>
-            <p>Session:<%= booking.start_at.hour%>:00 - <%= booking.end_at.hour %>:00</p>
+            <p>Session: <%= booking.start_at.hour %>:<%= booking.start_at.min %> - <%= booking.end_at.hour %>:<%= booking.end_at.min%></p>
 
-            <%= link_to "Delete Booking",
+            <%= link_to "🗑",
                   booking_path(booking),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
                   class:"btn btn-outline-danger" %>
