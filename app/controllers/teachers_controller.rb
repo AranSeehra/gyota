@@ -5,6 +5,8 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
+    @booking = Booking.new
+    
   end
 
   private
