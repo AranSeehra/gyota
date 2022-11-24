@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+    .code {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .icon-container {
+      height: 20vh;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .link {
+      height: 90px;
+      width: 90px;
+      text-align: center;
+      margin: 7px;
+      line-height: 36px;
+    }
+
+    a i {
+      transition: all 0.3s linear;
+    }
+
+    a:hover i {
+      transform: scale(1.5);
+    }
+
+    .github:hover {
+      color: #0e6dfe;
+    }
+    .html:hover {
+      color: #0e6dfe;
+    }
+    .code:hover {
+      color: #0e6dfe;
+    }
+    .gem:hover {
+      color: #0e6dfe;
+    }
+    .python:hover {
+      color: #0e6dfe;
+    }

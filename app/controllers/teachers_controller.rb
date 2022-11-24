@@ -19,7 +19,10 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
+    @markers = [{lat: @teacher.latitude, lng: @teacher.longitude}]
     @booking = Booking.new
+
+    @review = Review.new
 
   end
 
@@ -33,6 +36,8 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(strong_params)
     @teacher.save
   end
+
+  private
 
   def strong_params
     params.require(:teacher).permit(:first_name, :last_name, :location, :bio, :specialty, :price, :photo)
