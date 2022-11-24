@@ -1,26 +1,63 @@
 
-<%#= cl_image_tag @teacher.photo.key, width: 400, height: 300, crop: :fill %>
 <div class="container">
   <div class="card mb-3" style="max-width: 840px;">
     <div class="row g-0">
       <div class="col-md-4">
 
-
-        <img src="<%= cl_image_path @teacher.photo.key, width: 400, height: 300, crop: :fill %>" class="img-fluid rounded-start" alt="...">
-
-        <h1 class="mt-4 text-center"><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+  <div class="card-product">
+    <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="img-fluid rounded-start" alt="...">
+    <div class="card-product-infos">
+      <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+      <ul class="list-unstyled">
+        <li><strong>Location:</strong> <%= @teacher.location %></li>
+        <li><strong>Specialty:</strong> <%= @teacher.specialty %></li>
         <br>
-        <ul class="list-unstyled">
-
+        <li><%= @teacher.bio %></li>
+      </ul>
+      <h5 class="card-trip-pricing"><strong>£<%= rand(40..150) %>.00/h</strong></h5>
+      <br>
+      <%= link_to "Back to Teachers List", teachers_path, class: "btn btn-primary" %>
+    </div>
+  </div>
           <li><%= @teacher.location %></li>
           <li><%= @teacher.bio %></li>
           <li><%= @teacher.specialty %></li>
+          <li>£<%= @teacher.price %></li>
         </ul>
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h1>Book an Appointment</h1>
+        <%= simple_form_for [@teacher, @booking] do |f| %>
+          <%= f.input :start_at, as: :datetime, html5: true %>
+          <%= f.input :end_at, as: :datetime, html5: true %>
+          <%= f.submit %>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
 
-  <%= link_to "Book an appointment", new_teacher_booking_path(@teacher), class: "btn btn-flat" %>
-  <%= link_to "Back to teacher list", teachers_path, class: "btn btn-primary" %>
+
+<div class="card-review">
+  <div class="card-product-infos">
+    <ul class="list-unstyled">
+      <h3>Placeholder Reviews</h3>
+      <li>Ariel: <%= @teacher.first_name %> helped me learn to code!</li>
+      <li>⭐️⭐️⭐️⭐️⭐️</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card-review">
+  <div class="card-product-infos">
+    <ul class="list-unstyled">
+      <li>Som: <%= @teacher.first_name %>, absolute lifesaver! Thanks for teaching us!</li>
+      <li>⭐️⭐️⭐️⭐️⭐️</li>
+    </ul>
+  </div>
+
 </div>

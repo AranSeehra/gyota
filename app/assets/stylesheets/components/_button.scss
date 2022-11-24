@@ -1,11 +1,11 @@
 a {
-  color: rgb(111, 111, 111);
+  color: rgb(143, 143, 143);
   opacity: .7;
   text-decoration: none;
   font-family: Helvetica, sans-serif;
 }
 a:hover {
-  color: rgb(188, 188, 188);
+
   opacity: 1;
   text-decoration: none;
   }
@@ -27,3 +27,20 @@ a:hover {
     background: #4D04C4;
     color: white;
   }
+
+  .btn-ghost {
+    color: white;
+    border: 1px solid white;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-ghost:hover {
+    opacity: 1;
+    color: #0759d4;
+    border: 1px solid #0759d4;
+    font-weight: bold;
+    }
