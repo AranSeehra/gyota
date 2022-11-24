@@ -1,3 +1,5 @@
+      <%= link_to "Back to List", teachers_path, class: "btn btn-primary" %>
+
 
 <div class="container d-flex">
   <div class="card-product">
@@ -13,6 +15,7 @@
       <h5 class="card-trip-pricing"><strong>£<%= @teacher.price%>.00/hour</strong></h5>
     </div>
   </div>
+
   <div class="row">
     <div class="col-12">
       <div class="bg-white rounded p-3 shadow">
@@ -27,6 +30,16 @@
     </div>
   </div>
 </div>
+    <div class="card-review">
+      <div class="card-product-infos">
+        <ul class="list-unstyled">
+          <h3>Placeholder Reviews</h3>
+          <li>Ariel: <%= @teacher.first_name %> helped me learn to code!</li>
+          <li>⭐️⭐️⭐️⭐️⭐️</li>
+        </ul>
+      </div>
+    </div>
+
 
 
 
@@ -40,6 +53,7 @@
     </ul>
   </div>
 </div>
+
 
 <div class="card-review">
   <div class="card-product-infos">

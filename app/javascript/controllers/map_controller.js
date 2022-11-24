@@ -9,36 +9,34 @@ export default class extends Controller {
     markers: Array
   }
 
-  connect() {
-    mapboxgl.accessToken = this.apiKeyValue
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    connect() {
+      mapboxgl.accessToken = this.apiKeyValue
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
-  }
+
+      this.map = new mapboxgl.Map({
+        container: this.element,
+        style: "mapbox://styles/ariel-lima/clav03v3m00hi14mpvacbv12h"
+      })
+
+
+      this.#addMarkersToMap()
+      this.#fitMapToMarkers()
     }
 
-  this.map = new mapboxgl.Map({
-    container: this.element,
-    style: "mapbox://styles/ariel-lima/clav03v3m00hi14mpvacbv12h"
-  })
-  #fitMapToMarkers() {
-    const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  }
-  #fitMapToMarkers() {
-    const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    #fitMapToMarkers() {
+      const bounds = new mapboxgl.LngLatBounds()
+      this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+      this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
-  #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window) // Add this
-      new mapboxgl.Marker()
+
+    #addMarkersToMap() {
+      this.markersValue.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.info_window) // Add this
+        new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup) // Add this
         .addTo(this.map)
-    });
+      });
   }
+
+}
