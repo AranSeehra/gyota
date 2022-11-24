@@ -6,8 +6,10 @@
         <%= simple_form_for [@teacher, @booking] do |f| %>
           <%= f.input :start_at, as: :datetime, html5: true %>
           <%= f.input :end_at, as: :datetime, html5: true %>
+          <%= f.label :completed %>
+          <%= f.check_box :completed %>
           <%= f.submit %>
-          <%= link_to "Back to teacher", teacher_path(@teacher) %>
+          <%= link_to dashboard_path(@booking) %>
         <% end %>
       </div>
     </div>
