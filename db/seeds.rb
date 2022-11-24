@@ -77,7 +77,7 @@ lina.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 lina.save
 
 wayan = Teacher.new(first_name: 'Wayan', last_name: 'Agung', location: 'Jl. Munduk Catu No.32, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia', bio: "Don't judge me. I was born to be awesome, not perfect.", specialty: 'Web Dev', price: 35)
-file = URI.open("hhttps://res.cloudinary.com/duwlb2ydu/image/upload/v1669292294/production/avatar-83136b6a380f6dd0093c0f2c1d03734d_fijuai.jpg")
+file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292294/production/avatar-83136b6a380f6dd0093c0f2c1d03734d_fijuai.jpg")
 wayan.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 wayan.save
 
