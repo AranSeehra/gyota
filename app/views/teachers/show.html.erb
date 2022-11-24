@@ -1,32 +1,23 @@
       <%= link_to "Back to List", teachers_path, class: "btn btn-primary" %>
 
-<div class="container">
-  <div class="card mb-3" style="max-width: 840px;">
-    <div class="row g-0">
-      <div class="col-md-4">
 
-      <div class="card-product">
-        <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="img-fluid rounded-start" alt="...">
-        <div class="card-product-infos">
-          <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
-          <ul class="list-unstyled">
-            <li><strong>Location:</strong> <%= @teacher.location %></li>
-            <li><strong>Specialty:</strong> <%= @teacher.specialty %></li>
-            <br>
-            <li><%= @teacher.bio %></li>
-          </ul>
-          <div class="position-absolute bottom-0 end-0">
-          <h5 class="card-trip-pricing"><strong>£<%= rand(40..150) %>.00/h</strong></h5>
-          </div>
-
+<div class="container d-flex">
+  <div class="card-product">
+    <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="img-fluid rounded-start" alt="...">
+    <div class="card-product-infos">
+      <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+      <ul class="list-unstyled">
+        <li><strong>Location:</strong> <%= @teacher.location %></li>
+        <li><strong>Specialty:</strong> <%= @teacher.specialty %></li>
+        <br>
+        <li><%= @teacher.bio %></li>
+      </ul>
+      <h5 class="card-trip-pricing"><strong>£<%= @teacher.price%>.00/hour</strong></h5>
     </div>
   </div>
-</div>
 
-
-<div class="container py-5">
   <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
+    <div class="col-12">
       <div class="bg-white rounded p-3 shadow">
         <h1>Book an Appointment</h1>
         <%= simple_form_for [@teacher, @booking] do |f| %>
@@ -35,6 +26,7 @@
           <%= f.submit %>
         <% end %>
       </div>
+    <p class="button-show"><%= link_to "Back to Teachers List", teachers_path, class: "btn btn-secondary" %></p>
     </div>
   </div>
 </div>
@@ -51,6 +43,18 @@
 
 
 
+
+<div class="card-review">
+  <div class="card-product-infos">
+    <ul class="list-unstyled">
+      <h3>Placeholder Reviews</h3>
+      <li>Ariel: <%= @teacher.first_name %> helped me learn to code!</li>
+      <li>⭐️⭐️⭐️⭐️⭐️</li>
+    </ul>
+  </div>
+</div>
+
+
 <div class="card-review">
   <div class="card-product-infos">
     <ul class="list-unstyled">
@@ -58,5 +62,5 @@
       <li>⭐️⭐️⭐️⭐️⭐️</li>
     </ul>
   </div>
-
+</div>
 </div>
