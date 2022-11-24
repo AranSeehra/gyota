@@ -1,9 +1,5 @@
 
-<div class="container">
-  <div class="card mb-3" style="max-width: 840px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-
+<div class="container d-flex">
   <div class="card-product">
     <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="img-fluid rounded-start" alt="...">
     <div class="card-product-infos">
@@ -14,20 +10,11 @@
         <br>
         <li><%= @teacher.bio %></li>
       </ul>
-      <h5 class="card-trip-pricing"><strong>£<%= rand(40..150) %>.00/h</strong></h5>
-      <br>
-      <%= link_to "Back to Teachers List", teachers_path, class: "btn btn-primary" %>
+      <h5 class="card-trip-pricing"><strong>£<%= @teacher.price%>.00/hour</strong></h5>
     </div>
   </div>
-          <li><%= @teacher.location %></li>
-          <li><%= @teacher.bio %></li>
-          <li><%= @teacher.specialty %></li>
-          <li>£<%= @teacher.price %></li>
-        </ul>
-
-<div class="container py-5">
   <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
+    <div class="col-12">
       <div class="bg-white rounded p-3 shadow">
         <h1>Book an Appointment</h1>
         <%= simple_form_for [@teacher, @booking] do |f| %>
@@ -36,9 +23,11 @@
           <%= f.submit %>
         <% end %>
       </div>
+    <p class="button-show"><%= link_to "Back to Teachers List", teachers_path, class: "btn btn-secondary" %></p>
     </div>
   </div>
 </div>
+
 
 
 
@@ -59,5 +48,5 @@
       <li>⭐️⭐️⭐️⭐️⭐️</li>
     </ul>
   </div>
-
+</div>
 </div>
