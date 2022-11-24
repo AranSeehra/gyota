@@ -1,25 +1,27 @@
-<h1 class="mx-auto text-center mt-4 mb-3"> Your Bookings </h1>
+<h4 class="mx-auto text-left ms-5 mt-4 mb-3"> Your Bookings</h4>
+<p class="mx-auto text-left ms-5 mt-4 mb-3"> <%= @user.email %> </p>
 <ul>
-  <h1><%= @user.email %></h1>
 <br>
-
   <div class="row">
     <% @user.bookings.each do |booking| %>
     <div class="col-md-4">
       <div class="container">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <p>Teacher:</p>
-            <%= booking.teacher.first_name %> <%= booking.teacher.last_name %>
-            <p>Start Time: <%= booking.start_at %> </p>
-            <p>End Time: <%= booking.end_at %></p>
+        <div class="card mb-3 p-0 shadow mb-5 bg-body rounded">
+          <div class="card-body mt-1">
+            <img class="card-img-top" src="<%= cl_image_path booking.teacher.photo.key, width: 400, height: 300, crop: :fill %>" class="img-fluid rounded-start mb-2" alt="...">
+            <p>Your booking with: </p>
+
+            <h5 class="mt-2"><strong><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></strong></h5>
+            <p>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></p>
+            <p>Session:<%= booking.start_at.hour%>:00 - <%= booking.end_at.hour %>:00</p>
+
             <%= link_to "Delete Booking",
                   booking_path(booking),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
                   class:"btn btn-outline-danger" %>
-            <button type="button" class="btn btn-outline-info"><%= link_to "Edit" %></button>
+            <button type="button" class="btn btn-outline-info"><%= link_to "Edit", edit_booking_path %></button>
             <p class="card-text"><small class="text-muted">Last updated <%= rand(0..5) %> mins ago</small></p>
-            <h5 class="card-trip-pricing"><strong>£<%= rand(10..50) %>.00/h</strong></h5>
+            <h5 class="card-trip-pricing"><strong>£<%= rand(40..150) %>.00/h</strong></h5>
 
           </div>
         </div>
