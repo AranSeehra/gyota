@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :teachers do
     resources :bookings
+    resources :reviews, only: [ :new, :create ]
   end
 
   resources :bookings

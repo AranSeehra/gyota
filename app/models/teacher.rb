@@ -1,5 +1,6 @@
 class Teacher < ApplicationRecord
   has_many :bookings, dependent: :destroy
+  has_many :reviews
   has_one_attached :photo
   geocoded_by :location
 
