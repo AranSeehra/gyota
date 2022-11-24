@@ -1,5 +1,4 @@
 
-<%#= cl_image_tag @teacher.photo.key, width: 400, height: 300, crop: :fill %>
 <div class="container">
   <div class="card mb-3" style="max-width: 840px;">
     <div class="row g-0">
@@ -15,6 +14,7 @@
           <li><%= @teacher.location %></li>
           <li><%= @teacher.bio %></li>
           <li><%= @teacher.specialty %></li>
+          <li>£<%= @teacher.price %></li>
         </ul>
       </div>
     </div>

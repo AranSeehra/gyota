@@ -19,6 +19,6 @@ class TeachersController < ApplicationController
   end
 
   def strong_params
-    params.require(:teacher).permit(:first_name, :last_name, :location, :bio, :specialty, :photo)
+    params.require(:teacher).permit(:first_name, :last_name, :location, :bio, :specialty, :price, :photo)
   end
 end
