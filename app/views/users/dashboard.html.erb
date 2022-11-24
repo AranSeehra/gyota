@@ -10,23 +10,25 @@
           <div class="card-body mt-1">
             <img class="card-img-top" src="<%= cl_image_path booking.teacher.photo.key, width: 400, height: 300, crop: :fill %>" class="img-fluid rounded-start mb-2" alt="...">
             <p>Your booking with: </p>
-
             <h5 class="mt-2"><strong><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></strong></h5>
-            <p>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></p>
-            <p>Session:<%= booking.start_at.hour%>:00 - <%= booking.end_at.hour %>:00</p>
 
-            <%= link_to "Delete Booking",
-                  booking_path(booking),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                  class:"btn btn-outline-danger" %>
-            <button type="button" class="btn btn-outline-info"><%= link_to "Edit", edit_booking_path %></button>
+            <p><strong>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></strong></p>
+            <p><strong>Session: <%= booking.start_at.hour %>:<%= booking.start_at.min %> - <%= booking.end_at.hour %>:<%= booking.end_at.min%></strong></p>
+             <p> <%= booking.teacher.location %></p>
             <p class="card-text"><small class="text-muted">Last updated <%= rand(0..5) %> mins ago</small></p>
-            <h5 class="card-trip-pricing"><strong>£<%= rand(40..150) %>.00/h</strong></h5>
+            <div class="card-trip-pricing d-flex justify-content-between">
+              <p><%= link_to "",
+                booking_path(booking),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                class:"fa fa-trash fa-0x " %></p>
+              <h5><strong>£<%= rand(10..50) %>.00/h</strong></h5>
+
+            </div>
+
 
           </div>
         </div>
       </div>
     </div>
-
-    <% end %>
+   <% end %>
   </div>
