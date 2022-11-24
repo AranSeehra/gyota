@@ -30,4 +30,8 @@
     </li>
 </ul>
 
+      <div style="width: 50%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 <%# <p style="text-align: center;"><%= link_to raw('<i class="fa-solid fa-plus fa-lg"></i> List'), new_teacher_booking_path %> </p>
