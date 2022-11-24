@@ -6,4 +6,7 @@ class Teacher < ApplicationRecord
 
   after_validation :geocode, if: :will_save_change_to_location?
 
+  def avg_rating
+    reviews.average(:rating).round
+  end
 end
