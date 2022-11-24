@@ -1,4 +1,8 @@
 
+<div class="container">
+  <div class="card mb-3" style="max-width: 840px;">
+    <div class="row g-0">
+      <div class="col-md-4">
 
   <div class="card-product">
     <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="img-fluid rounded-start" alt="...">
@@ -15,6 +19,11 @@
       <%= link_to "Back to Teachers List", teachers_path, class: "btn btn-primary" %>
     </div>
   </div>
+          <li><%= @teacher.location %></li>
+          <li><%= @teacher.bio %></li>
+          <li><%= @teacher.specialty %></li>
+          <li>£<%= @teacher.price %></li>
+        </ul>
 
 <div class="container py-5">
   <div class="row">
