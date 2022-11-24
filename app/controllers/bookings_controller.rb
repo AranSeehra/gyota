@@ -35,15 +35,17 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path(current_user)
   end
 
-  def edit
-    @booking = Booking.find(params[:id])
-  end
+  # def edit
 
-  def update
-    @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to dashboard_path(current_user)
-  end
+  #   @booking = Booking.where(current_user.booking.id)
+
+  # end
+
+  # def update
+  #   @booking = Booking.find(params[:id])
+  #   @booking.update(booking_params)
+  #   redirect_to dashboard_path(current_user)
+  # end
 
   def destroy
     @booking = Booking.find(params[:id])
