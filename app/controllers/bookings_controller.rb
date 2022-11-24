@@ -35,6 +35,16 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path(current_user)
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to dashboard_path(current_user)
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -48,6 +58,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_at, :end_at, :teacher_id, :user_id)
+    params.require(:booking).permit(:start_at, :end_at, :completed, :teacher_id, :user_id)
   end
 end
