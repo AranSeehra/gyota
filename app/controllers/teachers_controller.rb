@@ -1,6 +1,14 @@
 class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
+    # The `geocoded` scope filters only teachers with coordinates
+    @markers = @teachers.geocoded.map do |teacher|
+      {
+        lat: teacher.latitude,
+        lng: teacher.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {teacher: teacher})
+      }
+    end
   end
 
   def show
