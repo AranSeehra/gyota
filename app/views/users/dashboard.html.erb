@@ -13,6 +13,7 @@
             <h5 class="mt-2"><strong><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></strong></h5>
             <p>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></p>
             <p>Session: <%= booking.start_at.hour %>:<%= booking.start_at.min %> - <%= booking.end_at.hour %>:<%= booking.end_at.min%></p>
+            <p> <%= booking.teacher.location %></p>
 
             <h5 class="card-trip-pricing"><strong>£<%= rand(40..150) %>.00/h</strong></h5>
             <%= link_to "🗑",
