@@ -1,40 +1,36 @@
 <h1 class="mx-auto text-center mt-4 mb-3"> Meet our TA's </h1>
 
-<ul>
-  <% @teachers.each do |teacher|%>
-    <%= link_to teacher_path(teacher) do %>
-      <div class="container-teacher">
-        <div class="card-group">
-        <li class="navbar-nav me-2">
-          <div class="card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 540px;">
-            <div class="row">
-              <div class="card-img-top">
-              <img src="<%= cl_image_path teacher.photo.key, width: 400, height: 300, crop: :fill %>" class="img-fluid rounded-start" alt="...">
-                <div class="col-md-4">
+<div class="container">
+  <div class="row">
+
+
+    <div class="col">
+
+       <% @teachers.each do |teacher|%>
+            <%= link_to teacher_path(teacher) do %>
+                  <div class="d-flex m-3">
+                      <%# <div class=""> %>
+                        <img src="<%= cl_image_path teacher.photo.key, width: 200, height: 200, crop: :fill %>" class="rounded-start" alt="...">
+                              <div class="p-3">
+                                <h5 class=""> <strong> <%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
+                                <strong><p class=""><%= teacher.location%>.</p></strong>
+                                <h6 class="teacher-price">£<%= teacher.price %></h6>
+                              </div>
+                      <%# </div> %>
                   </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <div>
-                        <h5 class=""> <strong> <%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
-                        </div>
-                        <p class=""><%= teacher.bio %>.</p>
-                        <h6 class="teacher-price">£<%= teacher.price %></h6>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </li>
+                  <hr>
+          <% end %>
+        <% end %>
+    </div>
+
+    <div class="col">
+      <div id="map" style="position: sticky; top: 68px;">
+        <div style="width: 100%; height: 450px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-    <% end %>
-  <% end %>
-</ul>
-
-
-      <div style="width: 50%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-<%# <p style="text-align: center;"><%= link_to raw('<i class="fa-solid fa-plus fa-lg"></i> List'), new_teacher_booking_path %> </p>
+    </div>
+  </div>
+</div>
