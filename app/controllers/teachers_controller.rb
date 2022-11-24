@@ -13,8 +13,8 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
+    @markers = [{lat: @teacher.latitude, lng: @teacher.longitude}]
     @booking = Booking.new
-    
   end
 
   private
