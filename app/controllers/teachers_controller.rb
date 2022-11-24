@@ -1,17 +1,7 @@
 class TeachersController < ApplicationController
   def index
+    @teachers = Teacher.all
     # The `geocoded` scope filters only teachers with coordinates
-    if params[:query].present?
-      sql_query = <<~SQL
-      teachers.location ILIKE :query
-        OR teachers.first_name ILIKE :query
-        OR directors.last_name ILIKE :query
-        SQL
-        @teachers = Teacher.where(sql_query, query: "%#{params[:query]}%")
-    else
-        @teachers = Teacher.all
-    end
-
     @markers = @teachers.geocoded.map do |teacher|
       {
         lat: teacher.latitude,
