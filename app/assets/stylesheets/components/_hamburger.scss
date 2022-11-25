@@ -3,11 +3,12 @@ $nav-width-desktop : 40em;
 $nav-width-mobile  : 25em;
 $nav-item-nb       : 6;
 
-input {
+.hamburger-input {
 	position: fixed;
 	opacity: 0;
 }
-label {
+
+.hamburger-label {
 	margin: 0;
 	padding: 0;
 	border: none;
