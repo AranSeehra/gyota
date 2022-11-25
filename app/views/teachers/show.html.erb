@@ -55,7 +55,7 @@
               <ul class="list-group">
                 <% @teacher.reviews.each do |review| %>
                   <%# <li><%= link_to teacher.name, teacher_path(teacher) %>
-                  <li class="list-group-item"><%= review.rating %> <br> <%= review.content %></li>
+                  <li class="list-group-item">⭐️ <%= review.rating %> <br><i>"<%= review.content %>"</i></li>
                 <% end %>
             </div>
           </ul>
