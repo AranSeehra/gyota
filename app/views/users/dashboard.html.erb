@@ -23,7 +23,7 @@
                 booking_path(booking),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
                 class:"fa fa-trash fa-0x " %></p>
-              <h5><strong>£<%= rand(10..50) %>.00/h</strong></h5>
+              <h5><strong>£<%= booking.teacher.price %>.00/h</strong></h5>
             </div>
             <%# <p class="card-text"><small class="text-muted">Last updated <%= rand(0..5) mins ago</small></p> %>
 
