@@ -20,17 +20,24 @@
 
        <% @teachers.each do |teacher|%>
             <%= link_to teacher_path(teacher) do %>
-                  <div class="d-flex m-3">
-                      <%# <div class=""> %>
-                        <img src="<%= cl_image_path teacher.photo.key, width: 200, height: 200, crop: :fill %>" class="rounded-start" alt="...">
-                              <div class="p-3">
-                                <h5 class=""> <strong> <%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
-                                <strong><p class=""><%= teacher.location%>.</p></strong>
-                                <h6 class="teacher-price">£<%= teacher.price %></h6>
-                              </div>
-                      <%# </div> %>
-                  </div>
-                  <hr>
+              <div class="d-flex m-3">
+
+                <img src="<%= cl_image_path teacher.photo.key, width: 200, height: 200, crop: :fill %>" class="rounded-start" alt="...">
+
+                <div class="p-3">
+                  <h5 class=""> <strong> <%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
+                  <% if teacher.reviews.empty? %>
+                  <p> <strong> <%= link_to "Leave a review!", teacher_path(teacher)  %></strong></p>
+                  <% else %>
+                    <%= teacher.avg_rating.times do %>
+                      ⭐️
+                    <% end %>
+                  <% end %>
+                  <strong><p class=""><%= teacher.location%>.</p></strong>
+                  <h6 class="teacher-price">£<%= teacher.price %></h6>
+                </div>
+              </div>
+              <hr>
           <% end %>
         <% end %>
     </div>
