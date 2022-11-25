@@ -3,6 +3,7 @@
 
 
 
+
 <div class="container" style="background-color: #EDF2FB;">
 
     <%= form_with url: teachers_path, method: :get, class: "d-flex " do %>
@@ -38,15 +39,16 @@
                     <hr>
             <% end %>
           <% end %>
-      </div>
+       
+    </div>
 
-      <div class="col">
-        <div id="map" style="position: sticky; top: 68px;">
-          <div style="width: 100%; height: 700px;"
-                data-controller="map"
-                data-map-markers-value="<%= @markers.to_json %>"
-                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+    <div class="col">
+      <div id="map" style="position: sticky; top: 68px;">
+        <div style="width: 100%; height: 700px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
         </div>
       </div>
 
