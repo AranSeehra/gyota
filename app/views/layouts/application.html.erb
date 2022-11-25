@@ -7,27 +7,35 @@
     <%= csp_meta_tag %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+
     <%= render "teachers/navbar" %>
-    <main>
+
       <p class="notice mb-0"><%= notice %></p>
       <p class="alert mb-0"><%= alert %></p>
 
 
 
+
+    <p class="notice mb-0 "><%= notice %></p>
+    <p class="alert p-0 mb-0"><%= alert %></p>
+
     <div style="min-height: calc(100vh - 116.47px)">
+
     <%= yield %>
     </div>
 
 
-    </main>
+
     <span><%= render "teachers/footer" %></span>
   </body>
 
 
 </html>
+
+<%# flash flash-success alert alert-dismissible fade show %>
+ <%# flash flash-danger alert alert-dismissible fade show %>

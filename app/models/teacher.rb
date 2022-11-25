@@ -6,4 +6,18 @@ class Teacher < ApplicationRecord
 
   after_validation :geocode, if: :will_save_change_to_location?
 
+
+  include PgSearch::Model
+  pg_search_scope :search_by_location_and_first_name,
+    against: [ :location, :first_name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  def avg_rating
+    return 0 if reviews.empty?
+    reviews.average(:rating).round
+  end
+
+
 end
