@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="teacher-name">
+    <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+    <p><%= @teacher.location %></p>
+    <%= @teacher.avg_rating.times do %>
+              ⭐️
+    <% end %>
+  </div>
+
+  <div class="pic-map">
+    <div class="pic-name">
+      <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="teacher-profile" alt="...">
+
+      <div class="card-product-infos">
+        <ul class="list-unstyled">
+          <li><strong>Specialty:</strong> <%= @teacher.specialty %></li>
+          <br>
+          <li><%= @teacher.bio %></li>
+        </ul>
+        <h5 class="card-trip-pricing"><strong>£<%= @teacher.price%>.00/hour</strong></h5>
+      </div>
+    </div>
+
+    <div style="width: 600px; height: 600px;" class="teacher-map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+  <div>
+    <div class="card-product">
+      <div class="col-12">
+        <div class="bg-white rounded p-3 shadow">
+          <h3>Book an Appointment</h3>
+          <%= simple_form_for [@teacher, @booking] do |f| %>
+            <%= f.input :start_at, as: :datetime, html5: true %>
+            <%= f.input :end_at, as: :datetime, html5: true %>
+            <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+      <div class="card-review">
+        <div class="card-product-infos">
+          <ul class="list-unstyled">
+            <div>
+              <h3>Add a review</h3>
+              <%= simple_form_for [@teacher, @review] do |f| %>
+              <%= f.input :content %>
+              <%= f.input :rating %>
+              <%= f.submit "Submit review", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+
+              <div>
+                <p><strong>Reviews</strong></p>
+                <ul class="list-group">
+                  <% @teacher.reviews.each do |review| %>
+                    <%# <li><%= link_to teacher.name, teacher_path(teacher) %>
+                    <li class="list-group-item"><%= review.rating %> <br> <%= review.content %></li>
+                  <% end %>
+              </div>
+            </ul>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
