@@ -4,6 +4,16 @@
   width: 400px;
 }
 
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+  align-content: center;
+}
 
 .card-product {
   overflow: hidden;
@@ -13,7 +23,7 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 20px;
 }
 
 .card-review {
@@ -22,7 +32,6 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   margin: 0 auto;
   margin-top: 10px;
   padding: 10px;
@@ -52,4 +61,3 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
-

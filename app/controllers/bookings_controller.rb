@@ -31,19 +31,25 @@ class BookingsController < ApplicationController
     # @booking.end_at = endtime
     @booking.teacher = @teacher
     @booking.user = current_user
-    @booking.save
-    redirect_to dashboard_path(current_user)
+    @review = Review.new
+    if @booking.save
+      redirect_to dashboard_path(current_user), notice: "Your booking has been successful!"
+    else
+      render template: "teachers/show", status: :unprocessable_entity
+    end
   end
 
-  def edit
-    @booking = Booking.find(params[:id])
-  end
+  # def edit
 
-  def update
-    @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to dashboard_path(current_user)
-  end
+  #   @booking = Booking.where(current_user.booking.id)
+
+  # end
+
+  # def update
+  #   @booking = Booking.find(params[:id])
+  #   @booking.update(booking_params)
+  #   redirect_to dashboard_path(current_user)
+  # end
 
   def destroy
     @booking = Booking.find(params[:id])

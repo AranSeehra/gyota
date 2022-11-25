@@ -11,27 +11,27 @@ require "open-uri"
 # Booking.destroy_all
 Teacher.destroy_all
 
-marco = Teacher.new(first_name: 'Marco', last_name: 'Ricci', location: 'Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY', bio: 'Having been the best Manager at Dishoom, I switched careers and am now Batch Manager at LeWagon London', specialty: 'Web Dev', price: 45)
+marco = Teacher.new(first_name: 'Marco', last_name: 'Ricci', location: '138 Kingsland Rd, London E2 8DY', bio: 'Having been the best Manager at Dishoom, I switched careers and I am now Batch Manager at LeWagon London', specialty: 'Web Dev', price: 45)
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1639647622/uyye8sjnejcohlb5gcui.jpg")
 marco.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 marco.save
 
-usman = Teacher.new(first_name: 'Usman', last_name: 'Akram', location: 'Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY', bio: "A recent web development Bootcamp graduate who facilitated the launch of two successful web applications as project manager. Out of fourteen pitches, my idea was one of eight that got greenlit. I grew my skills in analysis, time management and communication while studying for my Bachelor's and Master's degrees.", specialty: 'Web Dev', price: 35)
+usman = Teacher.new(first_name: 'Usman', last_name: 'Akram', location: '138 Kingsland Rd, London E2 8DY', bio: "A recent web development Bootcamp graduate who facilitated the launch of two successful web applications as project manager. I grew my skills in analysis, time management and communication while studying for my Bachelor's and Master's degrees.", specialty: 'Web Dev', price: 35)
 file = URI.open("https://avatars.githubusercontent.com/u/102724070?v=4")
 usman.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 usman.save
 
-jake = Teacher.new(first_name: 'Jake', last_name: 'Pople', location: 'Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY', bio: 'I have striven to combine both logic and creativity throughout his educational life. His musical and mathematical background have given him the sophisticated skill set needed to create a confident, creative, adaptable and personable young man.', specialty: 'Web Dev', price: 35)
+jake = Teacher.new(first_name: 'Jake', last_name: 'Pople', location: '138 Kingsland Rd, London E2 8DY', bio: 'Jake has striven to combine both logic and creativity throughout his educational life.', specialty: 'Web Dev', price: 35)
 file = URI.open("https://avatars.githubusercontent.com/u/70224830?v=4")
 jake.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 jake.save
 
-ziggy = Teacher.new(first_name: 'Ziggy', last_name: 'Bartkevicius', location: 'Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY', bio: 'With a lifelong passion for technology, I finally found the courage and started learning programming in January 2022.', specialty: 'Web Dev', price: 35)
+ziggy = Teacher.new(first_name: 'Ziggy', last_name: 'Bartkevicius', location: '138 Kingsland Rd, London E2 8DY', bio: 'With a lifelong passion for technology, I finally found the courage and started learning programming in January 2022.', specialty: 'Web Dev', price: 35)
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1649955863/fysthudzckcf7oga4vnz.jpg")
 ziggy.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 ziggy.save
 
-ife = Teacher.new(first_name: 'Ife', last_name: 'Odugbesan', location: 'Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY', bio: 'I love to lean. I love to develop. I love to code', specialty: 'Web Dev', price: 35)
+ife = Teacher.new(first_name: 'Ife', last_name: 'Odugbesan', location: '138 Kingsland Rd, London E2 8DY', bio: 'I love to learn. I love to develop. I love to code', specialty: 'Web Dev', price: 35)
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1653923203/khprtoxrj3icp1sqolfc.jpg")
 ife.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 ife.save
@@ -66,17 +66,17 @@ file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292297/p
 helen.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 helen.save
 
-paula = Teacher.new(first_name: 'Paula', last_name: 'Xenisa', location: 'Jl. Munduk Catu No.32, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia', bio: 'If everyone on Earth joined hands around the equator, many of them would drown.', specialty: 'Web Dev', price: 35)
+paula = Teacher.new(first_name: 'Paula', last_name: 'Xenisa', location: '80361 Badung, Bali', bio: 'If everyone on Earth joined hands around the equator, many of them would drown.', specialty: 'Web Dev', price: 35)
 file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292296/production/avatar-caec23c5dc4fdc153e3ba00c258f89a1_opylvq.jpg")
 paula.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 paula.save
 
-lina = Teacher.new(first_name: 'Lina', last_name: 'Kang', location: 'Jl. Munduk Catu No.32, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia', bio: 'In my defense, the voices in my head told me to do so.', specialty: 'Web Dev', price: 35)
+lina = Teacher.new(first_name: 'Lina', last_name: 'Kang', location: '80361 Badung, Bali', bio: 'In my defense, the voices in my head told me to do so.', specialty: 'Web Dev', price: 35)
 file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292294/production/avatar-a20b42af6017b42e185974ab6454bfa3_c5fxev.jpg")
 lina.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 lina.save
 
-wayan = Teacher.new(first_name: 'Wayan', last_name: 'Agung', location: 'Jl. Munduk Catu No.32, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia', bio: "Don't judge me. I was born to be awesome, not perfect.", specialty: 'Web Dev', price: 35)
+wayan = Teacher.new(first_name: 'Wayan', last_name: 'Agung', location: '80361 Badung, Bali', bio: "Don't judge me. I was born to be awesome, not perfect.", specialty: 'Web Dev', price: 35)
 file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292294/production/avatar-83136b6a380f6dd0093c0f2c1d03734d_fijuai.jpg")
 wayan.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 wayan.save
@@ -96,12 +96,12 @@ file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292293/p
 frank.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 frank.save
 
-carla = Teacher.new(first_name: 'Carla', last_name: 'Santos', location: 'Ipanema Business - R. Visc. de Pirajá, 142 - sala 304 - Ipanema, Rio de Janeiro - RJ, 22410-002, Brazil', bio: "My left hand has never touched my left elbow.", specialty: 'Web Dev', price: 35)
+carla = Teacher.new(first_name: 'Carla', last_name: 'Santos', location: 'Rua Visconde De Piraja 142, Rio de Janeiro, Brazil', bio: "My left hand has never touched my left elbow.", specialty: 'Web Dev', price: 35)
 file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292292/production/avatar-838a95fd6a8362da1b3d9743781a48eb_sn7obi.jpg")
 carla.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 carla.save
 
-julio = Teacher.new(first_name: 'Julio', last_name: 'Silva', location: 'Ipanema Business - R. Visc. de Pirajá, 142 - sala 304 - Ipanema, Rio de Janeiro - RJ, 22410-002, Brazil', bio: "Recovering ice cream addict. Really good at stuff until people watch me do the stuff.", specialty: 'Web Dev', price: 35)
+julio = Teacher.new(first_name: 'Julio', last_name: 'Silva', location: 'Rua Visconde De Piraja 142, Rio de Janeiro, Brazil', bio: "Recovering ice cream addict. Really good at stuff until people watch me do the stuff.", specialty: 'Web Dev', price: 35)
 file = URI.open("https://res.cloudinary.com/duwlb2ydu/image/upload/v1669292292/production/avatar-5bfcad97128672806a389c78c2ec8c98_mj84vt.jpg")
 julio.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 julio.save
