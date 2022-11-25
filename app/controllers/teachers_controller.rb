@@ -37,8 +37,6 @@ class TeachersController < ApplicationController
     @teacher.save
   end
 
-  private
-
   def strong_params
     params.require(:teacher).permit(:first_name, :last_name, :location, :bio, :specialty, :price, :photo)
   end

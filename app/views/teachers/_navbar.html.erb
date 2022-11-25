@@ -7,9 +7,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-2">
-          <li class="nav-item">
-            <h6><%= link_to "🏠 Home" ,   root_path,  class: "nav-link" %></h6>
-          </li>
           <% if current_user %>
           <li class="nav-item">
             <h6><%= link_to "📖 Bookings", dashboard_path(current_user), class: "nav-link"  %></h6>
