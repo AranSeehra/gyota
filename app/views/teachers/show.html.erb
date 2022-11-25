@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="teacher-name">
       <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
@@ -59,17 +60,7 @@
         <% end %>
     </div>
 
-            <div>
-              <p><strong>Reviews</strong></p>
-              <ul class="list-group">
-                <% @teacher.reviews.each do |review| %>
-                  <%# <li><%= link_to teacher.name, teacher_path(teacher) %>
-                  <li class="list-group-item">⭐️ <%= review.rating %> <br><i>"<%= review.content %>"</i></li>
-                <% end %>
-            </div>
-          </ul>
-        </ul>
-      </div>
+
     <div class="add-reviews">
       <h4><strong>Add a review</strong></h4>
       <%= simple_form_for [@teacher, @review] do |f| %>
