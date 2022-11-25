@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   def index
-
+    @review = Review.new
     if params[:query].present?
       @teachers = Teacher.search_by_location_and_first_name(params[:query])
     else

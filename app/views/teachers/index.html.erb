@@ -15,12 +15,7 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
-
-
-
-
     <div class="row">
-
 
       <div class="col">
 
@@ -31,6 +26,13 @@
                           <img src="<%= cl_image_path teacher.photo.key, width: 200, height: 200, crop: :fill %>" class="rounded-start" alt="...">
                                 <div class="p-3">
                                   <h5 class=""> <strong> <%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
+                                  <% if teacher.reviews.empty? %>
+                                  <p> <strong> <%= link_to "Leave a review!", teacher_path(teacher)  %></strong></p>
+                                  <% else %>
+                                    <%= teacher.avg_rating.times do %>
+                                      ⭐️
+                                    <% end %>
+                                  <% end %>
                                   <p class=""><%= teacher.location%>.</p>
                                   <h5 class="teacher-price text-align-end" style="background-color: #EDF2FB;">£<%= teacher.price %></h5>
                                 </div>
@@ -38,6 +40,7 @@
                     </div>
                     <hr>
             <% end %>
+
           <% end %>
        
     </div>

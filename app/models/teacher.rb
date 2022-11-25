@@ -14,6 +14,7 @@ class Teacher < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+
   def avg_rating
     return 0 if reviews.empty?
     reviews.average(:rating).round
