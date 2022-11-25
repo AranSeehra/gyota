@@ -1,65 +1,83 @@
-<div class="container d-flex">
-  <div class="card-product">
-    <img src="<%= cl_image_path @teacher.photo.key, crop: :fill %>" class="img-fluid rounded-start" alt="...">
-    <div class="card-product-infos">
+<div class="container">
+  <div class="teacher-name">
       <h1><%= @teacher.first_name %> <%= @teacher.last_name %></h1>
-        <%= @teacher.avg_rating.times do %>
-          ⭐️
-        <% end %>
-      <ul class="list-unstyled">
-        <li><strong>Location:</strong> <%= @teacher.location %></li>
-        <li><strong>Specialty:</strong> <%= @teacher.specialty %></li>
-        <br>
-        <li><%= @teacher.bio %></li>
-      </ul>
-      <h5 class="card-trip-pricing"><strong>£<%= @teacher.price%>.00/hour</strong></h5>
-    </div>
+      <p><%= @teacher.location %></p>
+      <%= @teacher.avg_rating.times do %>
+            ⭐️
+      <% end %><br>
   </div>
 
+  <div class="top-teacher">
+    <div>
+      <img src="<%= cl_image_path @teacher.photo.key, crop: :fill, width: 460, height: 460 %>" class="teacher-profile" alt="...">
+    </div>
 
-      <div style="width: 50%; height: 400px;"
+    <div class="teacher-map"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-</div>
-
-<div class="container d-flex">
-  <div class="card-product">
-    <div class="col-12">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Book an Appointment</h3>
-        <%= simple_form_for [@teacher, @booking] do |f| %>
-          <%= f.input :start_at, as: :datetime, html5: true %>
-          <%= f.input :end_at, as: :datetime, html5: true %>
-          <%= f.submit %>
-        <% end %>
-      </div>
-
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-    <div class="card-review">
-      <div class="card-product-infos">
-        <ul class="list-unstyled">
-          <div>
-            <h3>Add a review</h3>
-            <%= simple_form_for [@teacher, @review] do |f| %>
-            <%= f.input :content %>
-            <%= f.input :rating %>
-            <%= f.submit "Submit review", class: "btn btn-primary" %>
-            <% end %>
+
+  <div class="bottom-teacher">
+
+    <div class="teacher-bio">
+      <ul>
+          <h4><strong>Bio:</strong></h4>
+          <p><%= @teacher.bio %></p>
+          <h4><strong>Specialty:</strong></h4>
+          <p><%= @teacher.specialty %></p>
+          <h4><strong>Price:</strong></h4>
+          <p>£<%= @teacher.price %>.00</p><br>
+      </ul>
+    </div>
+
+    <div class="teacher-booking">
+      <h4><strong>Book a session</strong></h4>
+      <%= simple_form_for [@teacher, @booking] do |f| %>
+        <%= f.input :start_at, as: :datetime, html5: true %>
+        <%= f.input :end_at, as: :datetime, html5: true %>
+        <%= f.submit "Book", class: "btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="reviews">
+    <div class="reviews-list">
+      <h4><strong>Reviews</strong></h4>
+      <ul class="list-group">
+        <% @teacher.reviews.each do |review| %>
+          <div class="review-rating">
+          <strong><%= review.rating.times do %>
+            ⭐️
+          <% end %><br></strong>
           </div>
+
+          <div class="review-content">
+          <%= review.content %>
+          </div>
+        <% end %>
+    </div>
 
             <div>
               <p><strong>Reviews</strong></p>
               <ul class="list-group">
                 <% @teacher.reviews.each do |review| %>
                   <%# <li><%= link_to teacher.name, teacher_path(teacher) %>
-                  <li class="list-group-item"><%= review.rating %> <br> <%= review.content %></li>
+                  <li class="list-group-item">⭐️ <%= review.rating %> <br><i>"<%= review.content %>"</i></li>
                 <% end %>
             </div>
           </ul>
         </ul>
       </div>
+    <div class="add-reviews">
+      <h4><strong>Add a review</strong></h4>
+      <%= simple_form_for [@teacher, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
     </div>
+  </div>
+
 </div>

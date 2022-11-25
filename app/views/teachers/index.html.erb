@@ -1,45 +1,48 @@
-<h1 class="mx-auto text-center mt-0 mb-3"> Meet our TA's </h1>
+<h1 class="mx-auto text-center pt-4 pb-3" style="color:#ABC4FF;"> Meet our TA's </h1>
 
 
 
-<div class="container">
-
-  <%= form_with url: teachers_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a TA or a city"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-
-  <div class="row">
 
 
-    <div class="col">
+<div class="container" style="background-color: #EDF2FB;">
 
-       <% @teachers.each do |teacher|%>
-            <%= link_to teacher_path(teacher) do %>
-              <div class="d-flex m-3">
+    <%= form_with url: teachers_path, method: :get, class: "d-flex " do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Type a City or a TA's name"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
 
-                <img src="<%= cl_image_path teacher.photo.key, width: 200, height: 200, crop: :fill %>" class="rounded-start" alt="...">
+    <div class="row">
 
-                <div class="p-3">
-                  <h5 class=""> <strong> <%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
-                  <% if teacher.reviews.empty? %>
-                  <p> <strong> <%= link_to "Leave a review!", teacher_path(teacher)  %></strong></p>
-                  <% else %>
-                    <%= teacher.avg_rating.times do %>
-                      ⭐️
-                    <% end %>
-                  <% end %>
-                  <strong><p class=""><%= teacher.location%>.</p></strong>
-                  <h6 class="teacher-price">£<%= teacher.price %></h6>
-                </div>
-              </div>
-              <hr>
+      <div class="col">
+
+        <% @teachers.each do |teacher|%>
+              <%= link_to teacher_path(teacher) do %>
+                    <div class="d-flex m-3">
+                        <%# <div class=""> %>
+                          <img src="<%= cl_image_path teacher.photo.key, width: 200, height: 200, crop: :fill %>" class="rounded-start" alt="...">
+                                <div class="p-3">
+                                  <h5 class=""> <strong> <%= link_to "#{teacher.first_name} #{teacher.last_name}", teacher_path(teacher)  %></strong></h5>
+                                  <% if teacher.reviews.empty? %>
+                                  <p> <strong> <%= link_to "Leave a review!", teacher_path(teacher)  %></strong></p>
+                                  <% else %>
+                                    <%= teacher.avg_rating.times do %>
+                                      ⭐️
+                                    <% end %>
+                                  <% end %>
+                                  <p class=""><%= teacher.location%>.</p>
+                                  <h5 class="teacher-price text-align-end" style="background-color: #EDF2FB;">£<%= teacher.price %></h5>
+                                </div>
+                        <%# </div> %>
+                    </div>
+                    <hr>
+            <% end %>
+
           <% end %>
-        <% end %>
+       
     </div>
 
     <div class="col">
@@ -48,9 +51,9 @@
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
         </div>
       </div>
-    </div>
 
   </div>
 </div>

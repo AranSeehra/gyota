@@ -1,5 +1,5 @@
 a {
-  color: rgb(98, 98, 98);
+  color: #ABC4FF;
   opacity: .7;
   text-decoration: none;
   font-family: Helvetica, sans-serif;
@@ -23,21 +23,21 @@ a:hover {
   }
 
   .btn-flat {
-    color: white;
+    color: #EDF2FB;
     padding: 8px 24px;
     border-radius: 4px;
-    background: #670BFF;
+    background: #ABC4FF;
     transition: background 0.3s ease;
   }
 
   .btn-flat:hover {
-    background: #4D04C4;
-    color: white;
+    background: #ABC4FF;
+    color: #EDF2FB;
   }
 
   .btn-ghost {
-    color: white;
-    border: 1px solid white;
+    color: #EDF2FB;
+    border: 1px solid #EDF2FB;
     padding: 8px 24px;
     border-radius: 50px;
     font-weight: lighter;
@@ -47,7 +47,26 @@ a:hover {
 
   .btn-ghost:hover {
     opacity: 1;
-    color: #0759d4;
-    border: 1px solid #0759d4;
+    color: #ABC4FF;
+    border: 1px solid #ABC4FF;
     font-weight: bold;
     }
+
+  .nav-link {
+    color: #899fd0;
+  }
+
+  .btn-primary {
+    background-color: #EDF2FB;
+    stroke: #ABC4FF;
+    color: #ABC4FF;
+    border-color: #ABC4FF;
+  }
+  .btn-primary:hover {
+    background-color: #ABC4FF;
+    stroke: #ABC4FF;
+    border-color: #ABC4FF;
+  }
+  .btn-outline-primary {
+    color:#EDF2FB ;
+  }
