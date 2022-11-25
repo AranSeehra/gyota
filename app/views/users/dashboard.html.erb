@@ -10,9 +10,9 @@
           <div class="card-body mt-1">
           <%= link_to teacher_path(booking.teacher.id) do %>
             <img class="card-img-top" src="<%= cl_image_path booking.teacher.photo.key, width: 400, height: 300, crop: :fill %>" class="img-fluid rounded-start mb-2" alt="...">
+          <% end %>
             <p>Your booking with: </p>
             <h5 class="mt-2"><strong><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></strong></h5>
-    <% end %>
 
             <p><strong>Date: <%= booking.start_at.day %>/<%= booking.start_at.month %>/<%= booking.start_at.year %></strong></p>
             <p><strong>Session: <%= booking.start_at.hour %>:<%= booking.start_at.min %> - <%= booking.end_at.hour %>:<%= booking.end_at.min%></strong></p>
