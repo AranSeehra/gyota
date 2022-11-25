@@ -38,7 +38,7 @@
       <%= simple_form_for [@teacher, @booking] do |f| %>
         <%= f.input :start_at, as: :datetime, html5: true %>
         <%= f.input :end_at, as: :datetime, html5: true %>
-        <%= f.submit%>
+        <%= f.submit "Book", class: "btn btn-primary"%>
       <% end %>
 
     </div>
