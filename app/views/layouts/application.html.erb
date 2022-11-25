@@ -12,6 +12,7 @@
   </head>
 
   <body>
+
     <%= render "teachers/navbar" %>
 
       <p class="notice mb-0"><%= notice %></p>
@@ -19,7 +20,12 @@
 
 
 
-    <%# <div style="min-height: calc(100vh - 116.47px)"> %>
+
+    <p class="notice mb-0 "><%= notice %></p>
+    <p class="alert p-0 mb-0"><%= alert %></p>
+
+    <div style="min-height: calc(100vh - 116.47px)">
+
     <%= yield %>
     </div>
 
@@ -30,3 +36,6 @@
 
 
 </html>
+
+<%# flash flash-success alert alert-dismissible fade show %>
+ <%# flash flash-danger alert alert-dismissible fade show %>
