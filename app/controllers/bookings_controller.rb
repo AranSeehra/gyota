@@ -31,8 +31,12 @@ class BookingsController < ApplicationController
     # @booking.end_at = endtime
     @booking.teacher = @teacher
     @booking.user = current_user
-    @booking.save
-    redirect_to dashboard_path(current_user)
+    @review = Review.new
+    if @booking.save
+      redirect_to dashboard_path(current_user), notice: "Your booking has been successful!"
+    else
+      render template: "teachers/show", status: :unprocessable_entity
+    end
   end
 
   # def edit
